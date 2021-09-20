@@ -21,7 +21,7 @@ class Server {
         this.app.use(express.urlencoded({extended : true}));
         this.app.use(express.json());
         this.app.use(cors())
-        //this.ethereumConnect.ListenBlocksRinkeby();
+        this.ethereumConnect.ListenBlocksRinkeby();
     }
 
     public db() : void {
