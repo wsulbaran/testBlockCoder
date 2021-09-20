@@ -4,8 +4,8 @@ Simple overview of use/purpose.
 
 ## Descripción
 
-Este proyecto registra las transacciones de un bloque de Ethereum  cuando es minado. Las transacciones,
-se guardan en una base de datos de MongoDB, para luego ser consultada a traves una api.
+Este proyecto registra las transacciones de los bloque de Ethereum  cuando empiezan a minar. 
+Las transacciones, se guardan en una base de datos de MongoDB, para luego ser consultada a traves una api.
 
 ## Getting Started
 git clone https://github.com/wsulbaran/testBlockCoder.git
@@ -41,7 +41,7 @@ Cuerpo de la peticion
 // example: "from" o "to"
 
 {
-    
+
     "origin":"to",   
     "address":""
 
