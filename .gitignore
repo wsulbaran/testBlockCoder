@@ -69,6 +69,7 @@ build/Release
 node_modules/
 jspm_packages/
 package-lock.json
+dist/
 #ecosystem.config.js
 
 # Typescript v1 declaration files
@@ -90,7 +91,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+.env.json
 .envrc
 .env.local.json
 
