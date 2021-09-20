@@ -29,7 +29,9 @@ Cuerpo de la peticion
 // example: address, blocknumber, hash
 
 {
-    "filter":"316516516"  
+    
+    "filter":"316516516" 
+
 }
 
 /api/transaction/address POST
@@ -39,8 +41,10 @@ Cuerpo de la peticion
 // example: "from" o "to"
 
 {
-    "origin":"to"   
+    
+    "origin":"to",   
     "address":""
+
 }
 ## Autor
 
