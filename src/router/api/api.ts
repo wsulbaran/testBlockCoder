@@ -1,5 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { TransactionContorller } from '../../controllers/Transaction/Transaction';
+import { validateBodyTransactions } from '../../services/Middleware/Middleware';
 
 
 export class ApiRouter { 
@@ -25,8 +26,8 @@ export class ApiRouter {
 
         });
 
-        router.post('/transactions', async (req: Request, res: Response) => {
-            const filter = req.body.filter;
+        router.get('/transactions/:filter', validateBodyTransactions, async (req: Request, res: Response) => {
+            const filter = req.params.filter;
             await this.transactionController.getTransactions(filter)
             .then((transactions) => {
                 res.status(200).json({

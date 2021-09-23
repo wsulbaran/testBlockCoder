@@ -1,14 +1,11 @@
 import { ethers } from "ethers";
-import { BlockController } from "../../controllers/Block/Block";
 import { TransactionContorller } from "../../controllers/Transaction/Transaction";
-import { IBlockEther } from "../../models/BlockEthers/IBlockEthers";
 import { ITransaction } from "../../models/Transactions/ITransactions";
 require("dotenv-json-complex")();
 
 export class EthersService  {
     provider;
     node_URL = process.env.NODE_URL
-    blockController = new BlockController();
     transactionController = new TransactionContorller();
     bigNumber = (value) => ethers.BigNumber.from(value).toString();
     constructor () {
@@ -19,7 +16,7 @@ export class EthersService  {
         
         this.provider.on('block', async (blockNumber) => {
             console.log('blockNumber----->', blockNumber);
-            const blockDetail:IBlockEther = await this.provider.getBlock(blockNumber);
+            const blockDetail = await this.provider.getBlock(blockNumber);
 
             if (blockDetail) this.transactions(blockDetail.transactions)
             .catch((error) => {

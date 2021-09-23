@@ -21,12 +21,14 @@ class Server {
         this.app.use(express.urlencoded({extended : true}));
         this.app.use(express.json());
         this.app.use(cors())
-        this.ethereumConnect.ListenBlocksRinkeby();
     }
 
     public db() : void {
         mongoose.connect(this.dbUri, {})
-        .then(() =>  {console.log('Connected to db!!!');})
+        .then(() =>  {
+            console.log('Connected to db!!!');
+            this.ethereumConnect.ListenBlocksRinkeby();
+        })
         .catch((err) => console.error('Connection Error', err));
     }
 
@@ -34,6 +36,11 @@ class Server {
         const router: express.Router = express.Router();
         this.app.use('/', router);
         this.app.use('/api', new ApiRouter().route());
+
+        this.app.use(function(req, res, next) {
+            res.status(400).json({messages:'Not Found'});
+        });
+          
 
     }
 }

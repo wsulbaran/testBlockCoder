@@ -7,8 +7,10 @@ Simple overview of use/purpose.
 Este proyecto registra las transacciones de los bloque de Ethereum  cuando empiezan a minar. 
 Las transacciones, se guardan en una base de datos de MongoDB, para luego ser consultada a traves una api.
 
-## Getting Started
+## Primero Paso
 git clone https://github.com/wsulbaran/testBlockCoder.git
+
+Version de Nodejs 14.*.*
 
 Previamente tener instalado MongoDB para el registro de datos.
 ### Instalación
@@ -22,17 +24,13 @@ npm run server
 
 ### APIS
 
-/api/transaction  POST
+/api/transaction/:filter  GET
 
 Cuerpo de la peticion
 
 // example: address, blocknumber, hash
 
-{
-    
-    "filter":"316516516" 
-
-}
+/api/transaction/123617351
 
 /api/transaction/address POST
 
